@@ -8,6 +8,6 @@ TEST_CASE("Test for read of data from file ")
   float Temperature[SAMPLES] = {0};
   float SoC[SAMPLES] = {0};
   float ChargeRate[SAMPLES] = {0};
-  ReadFile( Temperature,SoC,ChargeRate);
+  //ReadFile( Temperature,SoC,ChargeRate);
   
 }
