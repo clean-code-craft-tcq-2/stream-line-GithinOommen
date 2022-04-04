@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_MAIN 
 
 #include "test/catch.hpp"
-#include "Sender/Header.h"
+#include "Header.h"
 
 TEST_CASE("Test for read of data from file ") 
 {
