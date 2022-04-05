@@ -9,6 +9,6 @@ TEST_CASE("Test for read of data from file ")
   float SoC[SAMPLES] = {0};
   float ChargeRate[SAMPLES] = {0};
   ReadFile( Temperature,SoC,ChargeRate);
-  DispReadData(Temperature, StateOfCharge, ChargeRate);
+  DispReadData( Temperature,SoC,ChargeRate);
   
 }
