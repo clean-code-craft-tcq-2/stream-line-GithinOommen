@@ -24,3 +24,11 @@ float parameter1, parameter2, parameter3;
   
   // return 0;
 }
+void DispReadData(float *temp, float *soc, float * charge)
+{
+        for(int i=0; i<SAMPLES;++i)
+        {
+                printf("\nValue of parameter1=%f\tparameter2=%f\tparameter3=%f", temp[i],soc[i],charge[i]);    
+        }
+        
+}
