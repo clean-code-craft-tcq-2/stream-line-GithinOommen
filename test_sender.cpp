@@ -14,7 +14,7 @@ TEST_CASE("Test for read of data from file ")
   float expectedoutput[3] = {10,65,0.010};
   
   REQUIRE(Temperature[0] == expectedoutput[0]);
-  REQUIRE(StateOfCharge[0] == expectedoutput[1]);
+  REQUIRE(SoC[0] == expectedoutput[1]);
   REQUIRE(ChargeRate[0] == expectedoutput[2]);
   
 }
