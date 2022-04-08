@@ -3,7 +3,7 @@ void ReadFile(float *temp, float *soc, float * charge)
 {
 
 float parameter1, parameter2, parameter3;
-   char *filename = "Sender.txt";
+   char *filename = "./Send/Sender.txt";
    FILE *fptr;
 
    if ((fptr = fopen(filename,"r")) == NULL){
