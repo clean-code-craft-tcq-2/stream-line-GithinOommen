@@ -9,7 +9,7 @@ TEST_CASE("Test for read of data from file ")
   float SoC[SAMPLES] = {0};
   float ChargeRate[SAMPLES] = {0};
   char *filename = "./Send/Sender.txt";
-  ReadFile( Temperature,SoC,ChargeRate);
+  ReadFile( filename,Temperature,SoC,ChargeRate);
   DispReadData( Temperature,SoC,ChargeRate);
   
   float expectedoutput[3] = {10,65,0.010};
