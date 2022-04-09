@@ -1,5 +1,5 @@
 #include "Header.h"
-void ReadFile(char * filename,float *temp, float *soc, float * charge)
+void ReadFile(char *filename,float *temp, float *soc, float * charge)
 {
 
 float parameter1, parameter2, parameter3;
