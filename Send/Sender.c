@@ -1,18 +1,17 @@
 #include "Header.h"
-void ReadFile(char *filename,float *temp, float *soc, float * charge)
+FileStatus StatusData;
+FileStatus ReadFile (char * filename,float *temp, float *soc, float *charge)
 {
 
 float parameter1, parameter2, parameter3;
    
    FILE *fptr;
-
-   if ((fptr = fopen(filename,"r")) == NULL){
-       printf("\nError! opening file");
-
-       // Program exits if the file pointer returns NULL.
-       exit(1);
-   }
-
+   StatusData = OK;
+   StatusData = FileOpenStatus (filename);
+   if (StatusData)
+    {
+      fptr = fopen (filename, "r");
+   
    for(int i=0;fscanf(fptr,"%f\t%f\t%f", &parameter1,&parameter2,&parameter3)!=EOF;i++)
    {
         temp[i]=parameter1;
@@ -21,8 +20,12 @@ float parameter1, parameter2, parameter3;
    }
 
    fclose(fptr); 
-  
-  // return 0;
+   }
+   else
+   {
+   }
+   
+  return StatusData;
 }
 void DispReadData(float *temp, float *soc, float * charge)
 {
@@ -31,4 +34,30 @@ void DispReadData(float *temp, float *soc, float * charge)
                 printf("\nValue of parameter1=%f\tparameter2=%f\tparameter3=%f", temp[i],soc[i],charge[i]);    
         }
         
+}
+FileStatus FileOpenStatus (char *filepath)
+{
+  int count = 0;
+  char c;
+  FILE *Pathfptr;
+  char fileName[100];
+  strcpy (fileName, filepath);
+  Pathfptr = fopen (fileName, "r");
+  // Extract characters from file
+  // and store in character c
+  if (Pathfptr == NULL)
+    {
+      count = 0;
+    }
+  else
+    {
+      for (c = getc (Pathfptr); c != EOF; c = getc (Pathfptr))
+
+	// Increment count for this character
+	count = count + 1;
+
+      // Close the file
+      fclose (Pathfptr);
+    }
+  return (count == 0) ? NOK : OK;
 }
