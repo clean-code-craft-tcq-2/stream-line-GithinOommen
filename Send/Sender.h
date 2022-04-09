@@ -1,7 +1,15 @@
 #ifndef SENDER_H
 #define SENDER_H
 #include "Header.h"
+#include <stdio.h>
 
-void ReadFile(char * filename,float *temp, float *soc, float *charge);
+typedef enum
+{
+        NOK,
+        OK
+}FileStatus;
+
+FileStatus ReadFile(char * filename,float *temp, float *soc, float *charge);
 void DispReadData(float *temp, float *soc, float *charge);
+FileStatus FileOpenStatus (char *filepath);
 #endif
