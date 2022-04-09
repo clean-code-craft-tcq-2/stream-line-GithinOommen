@@ -1,8 +1,8 @@
 #include "Header.h"
 FileStatus StatusData;
-FileStatus ReadFile (char * filename,float *temp, float *soc, float *charge)
+FileStatus ReadFile (int *SampleCount,char * filename,float *temp, float *soc, float *charge)
 {
-
+int i;
 float parameter1, parameter2, parameter3;
    
    FILE *fptr;
@@ -12,13 +12,13 @@ float parameter1, parameter2, parameter3;
     {
       fptr = fopen (filename, "r");
    
-   for(int i=0;fscanf(fptr,"%f\t%f\t%f", &parameter1,&parameter2,&parameter3)!=EOF;i++)
+   for(i=0;fscanf(fptr,"%f\t%f\t%f", &parameter1,&parameter2,&parameter3)!=EOF;i++)
    {
         temp[i]=parameter1;
         soc[i]=parameter2;
         charge[i]=parameter3;     
    }
-
+   *SampleCount=i;
    fclose(fptr); 
    }
    else
