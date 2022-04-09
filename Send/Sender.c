@@ -45,12 +45,8 @@ FileStatus FileOpenStatus (char *filepath)
   Pathfptr = fopen (fileName, "r");
   // Extract characters from file
   // and store in character c
-  if (Pathfptr == NULL)
-    {
-      count = 0;
-    }
-  else
-    {
+  if (Pathfptr != NULL)
+  {
       for (c = getc (Pathfptr); c != EOF; c = getc (Pathfptr))
 
 	// Increment count for this character
