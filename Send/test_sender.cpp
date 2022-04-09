@@ -20,3 +20,12 @@ TEST_CASE("Test for read of data from file ")
   REQUIRE(ChargeRate[0] == expectedoutput[2]);
   
 }
+TEST_CASE("Check the count of Samples read "){
+  int SampleCount;
+   float Temperature[SAMPLES] = {0};
+  float SoC[SAMPLES] = {0};
+  float ChargeRate[SAMPLES] = {0};
+  char *filename = "./Send/Sender.txt";
+  ReadFile( &SampleCount,filename,Temperature,SoC,ChargeRate);
+  REQUIRE(SampleCount== 50);
+  }
