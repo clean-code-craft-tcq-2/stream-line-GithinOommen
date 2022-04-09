@@ -3,13 +3,14 @@
 #include "test/catch.hpp"
 #include "Header.h"
 
-TEST_CASE("Test for read of data from file ") 
-{
   int SampleCount;
   float Temperature[SAMPLES] = {0};
   float SoC[SAMPLES] = {0};
   float ChargeRate[SAMPLES] = {0};
   char *filename = "./Send/Sender.txt";
+TEST_CASE("Test for read of data from file ") 
+{
+
   ReadFile( &SampleCount,filename,Temperature,SoC,ChargeRate);
   DispReadData( Temperature,SoC,ChargeRate);
   
@@ -21,11 +22,7 @@ TEST_CASE("Test for read of data from file ")
   
 }
 TEST_CASE("Check the count of Samples read "){
-  int SampleCount;
-   float Temperature[SAMPLES] = {0};
-  float SoC[SAMPLES] = {0};
-  float ChargeRate[SAMPLES] = {0};
-  char *filename = "./Send/Sender.txt";
+
   ReadFile( &SampleCount,filename,Temperature,SoC,ChargeRate);
   REQUIRE(SampleCount== 50);
   }
