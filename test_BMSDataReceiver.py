@@ -19,7 +19,7 @@ class BMSDataReceiverTest(unittest.TestCase):
 
     def test_convert_to_list_of_dictionery(self):
         receiver = BMSDataReceiver()
-        self.assertEqual(receiver.convert_to_list_of_dictionery(test_data),
+        self.assertEqual(receiver.convert_to_list_of_dictionary(test_data),
                          [{'Temperature': '10.000000', 'SoC': '65.000000', 'Charge': '0.010000'},
                           {'Temperature': '4.000000', 'SoC': '46.000000', 'Charge': '0.030000'},
                           {'Temperature': '21.000000', 'SoC': '32.000000', 'Charge': '0.050000'},
@@ -34,19 +34,19 @@ class BMSDataReceiverTest(unittest.TestCase):
 
     def test_get_maximum_of_parameters(self):
         receiver = BMSDataReceiver()
-        receiver.convert_to_list_of_dictionery(test_data)
+        receiver.convert_to_list_of_dictionary(test_data)
         self.assertEqual(receiver.calculate_maximum_of_parameters(),
                          {'Temperature': '9.000000', 'SoC': '96.000000', 'Charge': '0.190000'})
 
     def test_get_minimum_of_parameters(self):
         receiver = BMSDataReceiver()
-        receiver.convert_to_list_of_dictionery(test_data)
+        receiver.convert_to_list_of_dictionary(test_data)
         self.assertEqual(receiver.calculate_minimum_of_parameters(),
                          {'Temperature': '10.000000', 'SoC': '2.000000', 'Charge': '0.010000'})
 
     def test_print_min_and_max_values_to_console(self):
         receiver = BMSDataReceiver()
-        receiver.convert_to_list_of_dictionery(test_data)
+        receiver.convert_to_list_of_dictionary(test_data)
         min_reading = receiver.calculate_minimum_of_parameters()
         max_reading = receiver.calculate_maximum_of_parameters()
         self.assertEqual(
@@ -55,7 +55,7 @@ class BMSDataReceiverTest(unittest.TestCase):
 
     def test_calculate_moving_average_and_format(self):
         receiver = BMSDataReceiver()
-        receiver.convert_to_list_of_dictionery(test_data)
+        receiver.convert_to_list_of_dictionary(test_data)
         moving_average = receiver.calculate_moving_average()
         self.assertEqual(moving_average, {'Temperature': 25.6, 'SoC': 67.6, 'Charge': 0.15})
         self.assertEqual(moving_average_format.format('Temperature', moving_average['Temperature']),
@@ -63,7 +63,7 @@ class BMSDataReceiverTest(unittest.TestCase):
 
     def test_for_null_data(self):
         receiver = BMSDataReceiver()
-        self.assertEqual(receiver.convert_to_list_of_dictionery(test_data_null), 'No Data Found')
+        self.assertEqual(receiver.convert_to_list_of_dictionary(test_data_null), 'No Data Found')
 
 
 unittest.main()

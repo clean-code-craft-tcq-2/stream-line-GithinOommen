@@ -18,11 +18,14 @@ class BMSDataReceiver:
 
     def fetch_data_from_sender(self):
         data = []
-        for _ in range(50):
-            data.append(sys.stdin.readline().strip())
-        return data
+        if sys.stdin:
+            for _ in range(50):
+                data.append(sys.stdin.readline().strip())
+            return data
+        else:
+            return 'No Data Found'
 
-    def convert_to_list_of_dictionery(self, data):
+    def convert_to_list_of_dictionary(self, data):
         if data:
             for i in data:
                 data_instance = {}
@@ -64,7 +67,7 @@ class BMSDataReceiver:
         print(message)
 
     def fetch_and_display_stats_sender_data(self):
-        self.convert_to_list_of_dictionery(self.fetch_data_from_sender())
+        self.convert_to_list_of_dictionary(self.fetch_data_from_sender())
         if self.bms_data:
             self.calculate_maximum_of_parameters()
             self.calculate_minimum_of_parameters()
