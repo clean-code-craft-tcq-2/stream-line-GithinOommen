@@ -1,4 +1,5 @@
 #include "Header.h"
+
 FileStatus StatusData;
 FileStatus ReadFile (int *SampleCount,char * filename,float *temp, float *soc, float *charge)
 {
@@ -31,7 +32,7 @@ void DispReadData(float *temp, float *soc, float * charge)
 {
         for(int i=0; i<SAMPLES;++i)
         {
-                printf("\nValue of parameter1=%f\tparameter2=%f\tparameter3=%f", temp[i],soc[i],charge[i]);    
+                printf("%f\t%f\t%f\n", temp[i],soc[i],charge[i]);    
         }
         
 }

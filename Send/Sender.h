@@ -12,4 +12,5 @@ typedef enum
 FileStatus ReadFile(int *SampleCount,char * filename,float *temp, float *soc, float *charge);
 void DispReadData(float *temp, float *soc, float *charge);
 FileStatus FileOpenStatus (char *filepath);
+
 #endif
