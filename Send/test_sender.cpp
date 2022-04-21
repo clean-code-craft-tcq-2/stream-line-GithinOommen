@@ -3,10 +3,7 @@
 #include "test/catch.hpp"
 #include "Header.h"
 
-  int SampleCount;
-  float Temperature[SAMPLES] = {0};
-  float SoC[SAMPLES] = {0};
-  float ChargeRate[SAMPLES] = {0};
+
   char *filename = "./Send/Sender.txt";
 TEST_CASE("Test for read of data from file ") 
 {
