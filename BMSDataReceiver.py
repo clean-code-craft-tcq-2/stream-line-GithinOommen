@@ -19,6 +19,7 @@ class BMSDataReceiver:
 
     def fetch_data_from_sender(self):
         data = []
+        print(sys.stdin.readline())
         for _ in range(50):
             data.append(sys.stdin.readline().strip())
         return data
