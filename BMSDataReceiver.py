@@ -1,5 +1,5 @@
 import sys
 
-print("Output from Python Receiver!!")
+print("Output from Python Receiver!!", end="")
 for line in sys.stdin:
-    print(line)
+    print(line.replace('\n', ''))
