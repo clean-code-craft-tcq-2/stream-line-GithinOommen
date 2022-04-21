@@ -14,6 +14,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y gcovr
+
     - name: build sender
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker ./Send/*.c*
       
@@ -52,10 +53,7 @@ jobs:
         retention-days: 21
 
     - name: build receiver
-      run: python BMSDataReceiver.py | ./testcheckerforreceiver
-
-    - name: run receiver
-      run: ./testcheckerforreceiver
+      run: python BMSDataReceiver.py
 
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
