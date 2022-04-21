@@ -52,10 +52,10 @@ jobs:
         retention-days: 21
 
     - name: build receiver
-      run: python BMSDataReceiver.py | ./testchecker
+      run: python BMSDataReceiver.py | ./testcheckerforreceiver
 
     - name: run receiver
-      run: ./testchecker
+      run: ./testcheckerforreceiver
 
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
