@@ -9,6 +9,7 @@ class BMSDataReceiver:
         data = []
         for _ in range(50):
             data.append(sys.stdin.readline().strip())
+        print(data)
 
 
 receiver = BMSDataReceiver()
