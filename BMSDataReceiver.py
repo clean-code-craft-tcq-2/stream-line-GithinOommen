@@ -14,7 +14,6 @@ class BMSDataReceiver:
         self.moving_average = {}
 
     def stub_fetch_data_from_sender(self, data):
-        data = test_data_null
         return data
 
     def fetch_data_from_sender(self):
@@ -33,7 +32,7 @@ class BMSDataReceiver:
                     data_instance[dictionary_keys[index]] = d1[index]
                 self.bms_data.append(data_instance)
             return self.bms_data
-        else :
+        else:
             return 'No data Found'
 
     def calculate_maximum_of_parameters(self):
@@ -80,4 +79,4 @@ class BMSDataReceiver:
 
 receiver = BMSDataReceiver()
 # receiver.fetch_and_display_stats_sender_data()
-receiver.fetch_data_from_sender()
+print(receiver.fetch_data_from_sender())
