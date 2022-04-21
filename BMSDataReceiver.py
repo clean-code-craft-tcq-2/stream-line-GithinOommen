@@ -69,6 +69,7 @@ class BMSDataReceiver:
     def fetch_and_display_stats_sender_data(self):
         self.convert_to_list_of_dictionary(self.fetch_data_from_sender())
         if self.bms_data:
+            print(self.bms_data)
             self.calculate_maximum_of_parameters()
             self.calculate_minimum_of_parameters()
             self.print_min_and_max_values_to_console()
