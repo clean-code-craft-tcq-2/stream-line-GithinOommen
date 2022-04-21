@@ -62,6 +62,7 @@ class BMSDataReceiver:
         print(message)
 
     def fetch_and_display_stats_sender_data(self):
+        print(self.fetch_data_from_sender())
         self.convert_to_list_of_dictionery(self.fetch_data_from_sender())
         if self.bms_data:
             self.calculate_maximum_of_parameters()
