@@ -32,7 +32,7 @@ void DispReadData(float *temp, float *soc, float * charge)
 {
         for(int i=0; i<SAMPLES;++i)
         {
-                printf("%f\t%f\t%f", temp[i],soc[i],charge[i]);    
+                printf("%f\t%f\t%f\n", temp[i],soc[i],charge[i]);    
         }
         
 }
