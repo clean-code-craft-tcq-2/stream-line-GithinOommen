@@ -1,4 +1,4 @@
-from BMSDataReceiver import BMSDataReceiver
+from BMSDataReceiver import BMSDataReceiver, stub_fetch_data_from_sender
 from data_config import test_data
 from data_config import dictionary_keys
 from data_config import min_max_print_format
@@ -10,7 +10,7 @@ import unittest
 class BMSDataReceiverTest(unittest.TestCase):
     def test_stub_fetch_data_from_sender(self):
         receiver = BMSDataReceiver()
-        data = receiver.stub_fetch_data_from_sender(test_data)
+        data = stub_fetch_data_from_sender(test_data)
         self.assertTrue(len(data) > 0)
         self.assertEqual(data, test_data)
 

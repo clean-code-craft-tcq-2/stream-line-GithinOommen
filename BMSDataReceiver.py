@@ -6,24 +6,26 @@ from data_config import moving_average_format
 from data_config import test_data_null
 
 
+def fetch_data_from_sender():
+    data = []
+    if sys.stdin:
+        for _ in range(50):
+            data.append(sys.stdin.readline().strip())
+        return data
+    else:
+        return 'No Data Found'
+
+
+def stub_fetch_data_from_sender(data):
+    return data
+
+
 class BMSDataReceiver:
     def __init__(self):
         self.bms_data = []
         self.max_reading = {}
         self.min_reading = {}
         self.moving_average = {}
-
-    def stub_fetch_data_from_sender(self, data):
-        return data
-
-    def fetch_data_from_sender(self):
-        data = []
-        if sys.stdin:
-            for _ in range(50):
-                data.append(sys.stdin.readline().strip())
-            return data
-        else:
-            return 'No Data Found'
 
     def convert_to_list_of_dictionary(self, data):
         if data:
@@ -67,10 +69,10 @@ class BMSDataReceiver:
         print(message)
 
     def fetch_and_display_stats_sender_data(self):
-        data_from_sender = self.fetch_data_from_sender()
+        data_from_sender = fetch_data_from_sender()
         print(data_from_sender)
-        self.convert_to_list_of_dictionary(data_from_sender)
-        print(self.convert_to_list_of_dictionary(data_from_sender))
+        data_list_of_dictionary = self.convert_to_list_of_dictionary(data_from_sender)
+        print(data_list_of_dictionary)
         if self.bms_data:
             self.calculate_maximum_of_parameters()
             self.calculate_minimum_of_parameters()
@@ -82,7 +84,7 @@ class BMSDataReceiver:
 
 
 receiver = BMSDataReceiver()
-unparsed_data = receiver.fetch_data_from_sender()
-print(unparsed_data)
-print(receiver.convert_to_list_of_dictionary(unparsed_data))
-# receiver.fetch_and_display_stats_sender_data()
+# unparsed_data = fetch_data_from_sender()
+# print(unparsed_data)
+# print(receiver.convert_to_list_of_dictionary(unparsed_data))
+receiver.fetch_and_display_stats_sender_data()
