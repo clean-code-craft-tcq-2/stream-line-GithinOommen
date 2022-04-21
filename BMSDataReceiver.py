@@ -19,9 +19,9 @@ class BMSDataReceiver:
 
     def fetch_data_from_sender(self):
         data = []
-        print(sys.stdin.readline())
         for _ in range(50):
             data.append(sys.stdin.readline().strip())
+        print(data)
         return data
 
     def convert_to_list_of_dictionery(self, data):
@@ -76,4 +76,5 @@ class BMSDataReceiver:
 
 
 receiver = BMSDataReceiver()
-receiver.fetch_and_display_stats_sender_data()
+# receiver.fetch_and_display_stats_sender_data()
+receiver.fetch_data_from_sender()
