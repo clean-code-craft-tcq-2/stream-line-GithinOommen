@@ -15,7 +15,7 @@ class BMSDataReceiver:
                 bms_param['Temperature'] = input_data[0]
                 bms_param['SoC'] = input_data[1]
                 bms_param['Current'] = input_data[2]
-        self.bms_data.append(bms_param)
+                self.bms_data.append(bms_param)
 
 
 receiver = BMSDataReceiver()
