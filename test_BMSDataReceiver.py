@@ -63,7 +63,7 @@ class BMSDataReceiverTest(unittest.TestCase):
 
     def test_for_null_data(self):
         receiver = BMSDataReceiver()
-        self.assertEqual(receiver.convert_to_list_of_dictionery(test_data), 'No Data Found')
+        self.assertEqual(receiver.convert_to_list_of_dictionery(test_data_null), 'No Data Found')
 
 
 unittest.main()
