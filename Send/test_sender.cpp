@@ -5,6 +5,10 @@
 
 
   char *filename = "./Send/Sender.txt";
+        int SampleCount;
+  float Temperature[] = { 0 };
+  float StateOfCharge[] = { 0 };
+  float ChargeRate[] = { 0 };
 TEST_CASE("Test for read of data from file ") 
 {
 
