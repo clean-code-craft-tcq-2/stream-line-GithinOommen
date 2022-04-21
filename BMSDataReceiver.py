@@ -67,6 +67,7 @@ class BMSDataReceiver:
         print(message)
 
     def fetch_and_display_stats_sender_data(self):
+        print(self.fetch_data_from_sender())
         self.convert_to_list_of_dictionary(self.fetch_data_from_sender())
         if self.bms_data:
             print(self.bms_data)
