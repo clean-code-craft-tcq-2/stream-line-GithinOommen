@@ -1,4 +1,5 @@
 #include "Header.h"
+#include <stdio.h>
 int main()
 {
   char *filename = "./Send/Sender.txt";
