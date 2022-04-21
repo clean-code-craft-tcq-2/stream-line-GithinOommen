@@ -25,13 +25,16 @@ class BMSDataReceiver:
         return data
 
     def convert_to_list_of_dictionery(self, data):
-        for i in data:
-            data_instance = {}
-            d1 = i.split('\t')
-            for index in range(len(d1)):
-                data_instance[dictionary_keys[index]] = d1[index]
-            self.bms_data.append(data_instance)
-        return self.bms_data
+        if data:
+            for i in data:
+                data_instance = {}
+                d1 = i.split('\t')
+                for index in range(len(d1)):
+                    data_instance[dictionary_keys[index]] = d1[index]
+                self.bms_data.append(data_instance)
+            return self.bms_data
+        else :
+            return 'No data Found'
 
     def calculate_maximum_of_parameters(self):
         for key in self.bms_data[0].keys():
