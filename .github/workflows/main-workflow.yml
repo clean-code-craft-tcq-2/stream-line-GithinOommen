@@ -16,10 +16,10 @@ jobs:
         sudo apt-get install -y gcovr
 
     - name: build sender
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker ./Send/*.c*
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o test-checker ./Send/*.c*
 
     - name: run sender
-      run: ./testchecker
+      run: ./test-checker
 
     - name: collect coverage for sender
       run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html --print-summary
@@ -52,8 +52,8 @@ jobs:
         path: ./htmlcov
         retention-days: 21
 
-    - name: build receiver
-      run: ./testchecker | python BMSDataReceiver.py
+    - name: build receiver / pipeline
+      run: ./test-checker | python BMSDataReceiver.py
 
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
