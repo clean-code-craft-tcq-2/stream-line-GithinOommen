@@ -68,23 +68,14 @@ class BMSDataReceiver:
     def print_to_console(self, message):
         print(message)
 
-    def fetch_and_display_stats_sender_data(self):
-        data_from_sender = fetch_data_from_sender()
-        print(data_from_sender)
-        data_list_of_dictionary = self.convert_to_list_of_dictionary(data_from_sender)
-        print(data_list_of_dictionary)
-        if self.bms_data:
-            self.calculate_maximum_of_parameters()
-            self.calculate_minimum_of_parameters()
-            self.print_min_and_max_values_to_console()
-            self.calculate_moving_average()
-            self.print_moving_average()
-        else:
-            return 'No Data Found'
 
+if __name__ == '__main__':
+    receiver = BMSDataReceiver()
+    unparsed_data = fetch_data_from_sender()
+    data_list_of_dictionary = receiver.convert_to_list_of_dictionary(unparsed_data)
+    receiver.calculate_maximum_of_parameters()
+    receiver.calculate_minimum_of_parameters()
+    receiver.print_min_and_max_values_to_console()
+    receiver.calculate_moving_average()
+    receiver.print_moving_average()
 
-receiver = BMSDataReceiver()
-# unparsed_data = fetch_data_from_sender()
-# print(unparsed_data)
-# print(receiver.convert_to_list_of_dictionary(unparsed_data))
-receiver.fetch_and_display_stats_sender_data()
