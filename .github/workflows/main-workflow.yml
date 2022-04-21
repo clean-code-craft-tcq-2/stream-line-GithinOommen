@@ -17,7 +17,7 @@ jobs:
     - name: build sender
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker ./Send/*.c*
       
-    - name: run
+    - name: run sender
       run: ./testchecker
 
     - name: collect coverage
@@ -50,6 +50,12 @@ jobs:
         name: coverage
         path: ./htmlcov
         retention-days: 21
+
+    - name: build receiver
+      run: python BMSDataReceiver.py | ./testchecker
+
+    - name: run receiver
+      run: ./testchecker
 
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
