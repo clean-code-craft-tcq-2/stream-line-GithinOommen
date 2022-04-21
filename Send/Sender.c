@@ -1,8 +1,5 @@
 #include "Header.h"
-        int SampleCount;
-  float Temperature[] = { 0 };
-  float StateOfCharge[] = { 0 };
-  float ChargeRate[] = { 0 };
+
 FileStatus StatusData;
 FileStatus ReadFile (int *SampleCount,char * filename,float *temp, float *soc, float *charge)
 {
