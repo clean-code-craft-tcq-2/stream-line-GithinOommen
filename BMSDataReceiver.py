@@ -33,7 +33,7 @@ class BMSDataReceiver:
                 self.bms_data.append(data_instance)
             return self.bms_data
         else:
-            return 'No data Found'
+            return 'No Data Found'
 
     def calculate_maximum_of_parameters(self):
         for key in self.bms_data[0].keys():
