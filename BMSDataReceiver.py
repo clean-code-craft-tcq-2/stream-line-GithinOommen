@@ -82,4 +82,4 @@ class BMSDataReceiver:
 
 receiver = BMSDataReceiver()
 # receiver.fetch_and_display_stats_sender_data()
-receiver.fetch_data_from_sender()
+print(receiver.fetch_data_from_sender())
