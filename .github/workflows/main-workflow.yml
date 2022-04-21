@@ -42,7 +42,7 @@ jobs:
         flake8 . --count --exit-zero --max-line-length=80 --ignore=E111,E121,E126 --statistics
     - name: Run and collect coverage for Sender
       run: |
-        coverage run --branch BMSDataReceiver.py
+        coverage run --branch test_BMSDataReceiver.py
         coverage html
         coverage report
     - name: Upload coverage for sender
