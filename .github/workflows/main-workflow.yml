@@ -21,7 +21,7 @@ jobs:
     - name: run sender
       run: ./testchecker
 
-    - name: collect coverage
+    - name: collect coverage for sender
       run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html --print-summary
 
     - uses: actions/setup-python@v2
@@ -45,7 +45,7 @@ jobs:
         coverage run --branch test_BMSDataReceiver.py
         coverage html
         coverage report
-    - name: Upload coverage for sender
+    - name: Upload coverage for receiver
       uses: actions/upload-artifact@v2
       with:
         name: coverage
