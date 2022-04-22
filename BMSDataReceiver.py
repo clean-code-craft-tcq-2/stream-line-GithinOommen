@@ -4,7 +4,7 @@ from data_config import dictionary_keys
 from data_config import min_max_print_format
 from data_config import moving_average_format
 from data_config import test_data_null
-
+from data_config import moving_average_window
 
 def fetch_data_from_sender():
     data = []
@@ -41,12 +41,12 @@ class BMSDataReceiver:
 
     def calculate_maximum_of_parameters(self):
         for key in self.bms_data[0].keys():
-            self.max_reading[key] = max(d[key] for d in self.bms_data)
+            self.max_reading[key] = max(reading[key] for reading in self.bms_data)
         return self.max_reading
 
     def calculate_minimum_of_parameters(self):
         for key in self.bms_data[0].keys():
-            self.min_reading[key] = min(d[key] for d in self.bms_data)
+            self.min_reading[key] = min(reading[key] for reading in self.bms_data)
         return self.min_reading
 
     def print_min_and_max_values_to_console(self):
@@ -59,9 +59,9 @@ class BMSDataReceiver:
 
     def calculate_moving_average(self):
 
-        if len(self.bms_data) > 5:
+        if len(self.bms_data) > moving_average_window:
             for key in self.bms_data[0].keys():
-                moving_average = sum(float(d[key]) for d in self.bms_data[-5:]) / 5
+                moving_average = sum(float(d[key]) for d in self.bms_data[-moving_average_window:]) / moving_average_window
                 self.moving_average[key] = moving_average
             return self.moving_average
 
