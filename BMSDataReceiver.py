@@ -8,17 +8,21 @@ from data_config import moving_average_window
 
 
 def fetch_data_from_sender():
-    data = [] # pragma: no cover
-    if sys.stdin: # pragma: no cover
-        for _ in range(50): # pragma: no cover
-            data.append(sys.stdin.readline().strip()) # pragma: no cover
-        return data # pragma: no cover
-    else: # pragma: no cover
-        return 'No Data Found' # pragma: no cover
+    data = []  # pragma: no cover
+    if sys.stdin:  # pragma: no cover
+        for _ in range(50):  # pragma: no cover
+            data.append(sys.stdin.readline().strip())  # pragma: no cover
+        return data  # pragma: no cover
+    else:  # pragma: no cover
+        return 'No Data Found'  # pragma: no cover
 
 
 def stub_fetch_data_from_sender(data):
     return data
+
+
+def print_to_console(message):
+    print(message)  # pragma: no cover
 
 
 class BMSDataReceiver:
@@ -51,12 +55,13 @@ class BMSDataReceiver:
         return self.min_reading
 
     def print_min_and_max_values_to_console(self):
-        for key in self.min_reading.keys(): # pragma: no cover
-            self.print_to_console(min_max_print_format.format(key, self.min_reading[key], self.max_reading[key])) # pragma: no cover
+        for key in self.min_reading.keys():  # pragma: no cover
+            print_to_console(
+                min_max_print_format.format(key, self.min_reading[key], self.max_reading[key]))  # pragma: no cover
 
     def print_moving_average(self):
-        for key in self.moving_average.keys(): # pragma: no cover
-            self.print_to_console(moving_average_format.format(key, self.moving_average[key])) # pragma: no cover
+        for key in self.moving_average.keys():  # pragma: no cover
+            print_to_console(moving_average_format.format(key, self.moving_average[key]))  # pragma: no cover
 
     def calculate_moving_average(self):
 
@@ -66,9 +71,6 @@ class BMSDataReceiver:
                     float(d[key]) for d in self.bms_data[-moving_average_window:]) / moving_average_window
                 self.moving_average[key] = moving_average
             return self.moving_average
-
-    def print_to_console(self, message):
-        print(message)
 
 
 if __name__ == '__main__':
