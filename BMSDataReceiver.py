@@ -29,11 +29,11 @@ class BMSDataReceiver:
 
     def convert_to_list_of_dictionary(self, data):
         if data:
-            for i in data:
+            for reading_instance in data:
                 data_instance = {}
-                d1 = i.split('\t')
-                for index in range(len(d1)):
-                    data_instance[dictionary_keys[index]] = d1[index]
+                parameters = reading_instance.split('\t')
+                for index in range(len(parameters)):
+                    data_instance[dictionary_keys[index]] = parameters[index]
                 self.bms_data.append(data_instance)
             return self.bms_data
         else:
