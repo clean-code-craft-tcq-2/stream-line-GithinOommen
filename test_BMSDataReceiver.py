@@ -66,4 +66,5 @@ class BMSDataReceiverTest(unittest.TestCase):
         self.assertEqual(receiver.convert_to_list_of_dictionary(test_data_null), 'No Data Found')
 
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()
