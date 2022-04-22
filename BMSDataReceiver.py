@@ -6,6 +6,7 @@ from data_config import moving_average_format
 from data_config import test_data_null
 from data_config import moving_average_window
 
+
 def fetch_data_from_sender():
     data = []
     if sys.stdin:
@@ -61,7 +62,8 @@ class BMSDataReceiver:
 
         if len(self.bms_data) > moving_average_window:
             for key in self.bms_data[0].keys():
-                moving_average = sum(float(d[key]) for d in self.bms_data[-moving_average_window:]) / moving_average_window
+                moving_average = sum(
+                    float(d[key]) for d in self.bms_data[-moving_average_window:]) / moving_average_window
                 self.moving_average[key] = moving_average
             return self.moving_average
 
@@ -69,13 +71,11 @@ class BMSDataReceiver:
         print(message)
 
 
-if __name__ == '__main__':
-    receiver = BMSDataReceiver()
-    unparsed_data = fetch_data_from_sender()
-    data_list_of_dictionary = receiver.convert_to_list_of_dictionary(unparsed_data)
-    receiver.calculate_maximum_of_parameters()
-    receiver.calculate_minimum_of_parameters()
-    receiver.print_min_and_max_values_to_console()
-    receiver.calculate_moving_average()
-    receiver.print_moving_average()
-
+receiver = BMSDataReceiver()
+unparsed_data = fetch_data_from_sender()
+data_list_of_dictionary = receiver.convert_to_list_of_dictionary(unparsed_data)
+receiver.calculate_maximum_of_parameters()
+receiver.calculate_minimum_of_parameters()
+receiver.print_min_and_max_values_to_console()
+receiver.calculate_moving_average()
+receiver.print_moving_average()
